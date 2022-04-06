@@ -1,0 +1,42 @@
+###
+POST http://localhost:5000/api/v1/superheroes/superhero HTTP/1.1
+Content-Type: application/json
+
+{
+  "superhero":"Batman",
+  "realname":"Bruce Wayne",
+  "feature":{
+    "universe":"616",
+    "super_powers":["mentality", "inteligence"]
+  },
+  "superhero_sidekick":{
+    "sidekick":"Robin",
+    "side_powers":["flexibility", "agility"]
+  }
+}
+
+###
+GET http://localhost:5000/api/v1/superheroes HTTP/1.1
+
+###
+GET http://localhost:5000/api/v1/superheroes/superheroId HTTP/1.1
+
+###
+PUT http://localhost:5000/api/v1/superheroes/superheroId HTTP/1.1
+Content-Type: application/json
+
+{
+  "superhero":"Aquaman",
+  "realname":"Arthur Curry",
+  "feature":{
+    "universe":"616",
+    "super_powers":["fishtalking", "swim"]
+  },
+  "superhero_sidekick":{
+    "sidekick":"Aqualad",
+    "side_powers":["fishtalking", "swim"]
+  }
+}
+
+###
+DELETE  http://localhost:5000/api/v1/superheroes/superheroId HTTP/1.1

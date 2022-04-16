@@ -20,13 +20,13 @@ app.listen(port, () => console.log('Active port', port));
 
 /* Endpoint: http://localhost:5000 */
 app.get('/', (req, res) => {
-  res.send('Practica HTTP - Despliegue');
+  res.send('Practica SendGrid - Twilio');
 });
 
-mongoose
+/* mongoose
   .connect(process.env.MONGODB_STRING_CONNECTION)
   .then(() => console.log('Success connection with mongo'))
-  .catch((error) => console.error(error));
+  .catch((error) => console.error(error)); */
 
 /* ========================TWILIO======================== */
 // Download the helper library from https://www.twilio.com/docs/node/install
@@ -36,13 +36,14 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 
+/* -----SMS----- */
 client.messages
   .create({
-    body: 'Prueba de Twilio. Grupo Ing de Software miercoles en la mañana',
+    body: 'Prueba de Twilio por SMS. Grupo Ing de Software miercoles en la mañana',
     from: '+15716216984',
     to: '+573182200072',
   })
-  .then((message) => console.log(message.sid));
+  .then((message) => console.log(`Mensaje Enviado por SMS ${message.sid}`));
 
 /* ========================SENDGRID======================== */
 
